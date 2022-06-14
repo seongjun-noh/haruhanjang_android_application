@@ -1,0 +1,1 @@
+# haruhanjang_android_application
