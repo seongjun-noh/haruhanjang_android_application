@@ -1,15 +1,19 @@
 package com.example.haruhanjang;
 
+import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +23,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ViewDiary extends AppCompatActivity {
     private ViewPager2 viewPager2;
@@ -33,6 +36,8 @@ public class ViewDiary extends AppCompatActivity {
     ImageView diaryPhotoImageView;
     Button deleteBtn, updateBtn, shareBtn, favoriteBtn;
     String diaryEditDate, diaryPhotoPATH, diaryTitle, diaryText;
+
+    MyDBHelper myDBHelper;
 
     ArrayList<Fragment> fragments = new ArrayList<>();
 
@@ -48,7 +53,7 @@ public class ViewDiary extends AppCompatActivity {
         favoriteBtn = (Button) findViewById(R.id.favoriteBtn);
 
         diaryID = getIntent().getIntExtra("diaryID", 0);
-        MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext());
+        myDBHelper = new MyDBHelper(getApplicationContext());
         SQLiteDatabase sqlDB = myDBHelper.getReadableDatabase();
         Cursor cursor = sqlDB.rawQuery("SELECT * FROM diary WHERE diaryID = " + diaryID + ";", null);
 
@@ -129,21 +134,30 @@ public class ViewDiary extends AppCompatActivity {
             }
         });
 
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri file = getUriFromPath(diaryPhotoPATH);
+                Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                shareIntent.setType("image/*");
+                shareIntent.putExtra(Intent.EXTRA_STREAM,file);
+                shareIntent.setPackage("com.instagram.android");
+                startActivity(shareIntent);
+            }
+        });
+
         favoriteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyDBHelper myDBHelper = new MyDBHelper(getApplicationContext());
+                myDBHelper = new MyDBHelper(getApplicationContext());
                 SQLiteDatabase sqlDB = myDBHelper.getWritableDatabase();
 
-                try {
-                    sqlDB.execSQL("UPDATE diary SET isFavorite = 1 WHERE diaryID = " + diaryID + " AND isFavorite = 0;");
-                }catch (Exception e) {
-
-                }
-                try {
-                    sqlDB.execSQL("UPDATE diary SET isFavorite = 0 WHERE diaryID = " + diaryID + " AND isFavorite = 1;");
-                } catch (Exception e) {
-
+                if(diaryIsFavorite == 0) {
+                    sqlDB.execSQL("UPDATE diary SET isFavorite = 1 WHERE diaryID = " + diaryID);
+                    diaryIsFavorite = 1;
+                } else {
+                    sqlDB.execSQL("UPDATE diary SET isFavorite = 0 WHERE diaryID = " + diaryID);
+                    diaryIsFavorite = 0;
                 }
 
                 sqlDB.close();
@@ -156,5 +170,20 @@ public class ViewDiary extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         recreate();
     }
+
+    private Uri getUriFromPath(String filePath) {
+        long photoId;
+        Uri photoUri = MediaStore.Images.Media.getContentUri("external");
+        String[] projection = {MediaStore.Images.ImageColumns._ID};
+        Cursor cursor = getContentResolver().query(photoUri, projection, MediaStore.Images.ImageColumns.DATA + " LIKE ?", new String[] { filePath }, null);
+        cursor.moveToFirst();
+
+        int columnIndex = cursor.getColumnIndex(projection[0]);
+        photoId = cursor.getLong(columnIndex);
+
+        cursor.close();
+        return Uri.parse(photoUri.toString() + "/" + photoId);
+    }
+
 }
 

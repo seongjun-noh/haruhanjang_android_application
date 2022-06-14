@@ -92,6 +92,11 @@ public class AddDiary extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(selectedImageUri == null) {
+                    Toast.makeText(getApplicationContext(), "이미지를 추가해 주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String editDateStr = editDateTv.getText().toString();
 //                String picturePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Pictures";
                 if(viewPager2.getCurrentItem() == 0) {

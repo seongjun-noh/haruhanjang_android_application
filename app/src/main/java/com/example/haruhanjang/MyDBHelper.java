@@ -19,6 +19,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE diary (diaryID INTEGER PRIMARY KEY AUTOINCREMENT, diaryEditDate TEXT, diaryPhotoPATH TEXT, diaryTitle TEXT, diaryTEXT TEXT, isFavorite INTEGER)");
+        db.execSQL("CREATE TABLE album (albumID INTEGER PRIMARY KEY AUTOINCREMENT, albumTitle TEXT)");
 //        db.execSQL("CREATE TABLE favorite (favoriteDiaryID INT PRIMARY KEY, FOREIGN KEY(diaryID) REFERENCES diary(diaryID))");
     }
 

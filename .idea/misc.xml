@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/drawable/ic_main_background.xml" value="0.171" />
+        <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/drawable/ic_menu_camera.xml" value="0.171" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.168" />
+        <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.171" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/drawable/round_button.xml" value="0.2395" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/drawable/side_nav_bar.xml" value="0.168" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/layout/aa.xml" value="0.26992753623188404" />
@@ -15,6 +18,7 @@
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/layout/fragment_add_diary_photo.xml" value="0.26992753623188404" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/layout/fragment_add_diary_text.xml" value="0.26992753623188404" />
+        <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/layout/fragment_favorite.xml" value="0.24456521739130435" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/layout/fragment_home.xml" value="0.17603850050658562" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/layout/fragment_month.xml" value="0.26992753623188404" />
         <entry key="..\:/AndroidStudio/haruhanjang/app/src/main/res/layout/fragment_slideshow.xml" value="0.17603850050658562" />

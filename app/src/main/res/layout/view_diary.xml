@@ -31,7 +31,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:text="삭제"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:background="@drawable/round_button" />
         <Button
             android:id="@+id/updateBtn"
@@ -39,7 +39,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:text="수정"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/round_button"/>
         <Button
@@ -48,7 +48,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:text="공유"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/round_button"/>
         <Button
@@ -57,7 +57,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:text="좋아요"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/round_button"/>
     </LinearLayout>

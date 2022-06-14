@@ -1,56 +1,26 @@
 package com.example.haruhanjang;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-//public class UpdateDiary extends AppCompatActivity {
-//    private ViewPager2 viewPager2;
-//
-//    ArrayList<Fragment> fragments = new ArrayList<>();
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.update_diary);
-//
-////        fragments.add(AddDiaryPhoto.newInstance(0));
-////        fragments.add(AddDiaryText.newInstance(1));
-////
-////        viewPager2 = (ViewPager2) findViewById(R.id.UpdateDiaryPager);
-////
-////        ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(this, fragments);
-////        viewPager2.setAdapter(viewPager2Adapter);
-//    }
-//}
 
 public class UpdateDiary extends AppCompatActivity {
     private ViewPager2 viewPager2;

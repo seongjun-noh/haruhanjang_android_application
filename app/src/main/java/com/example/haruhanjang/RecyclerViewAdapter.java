@@ -4,14 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,6 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
         Bitmap bmImg = BitmapFactory.decodeFile(mDataset.get(position).imagePath);
         holder.recyclerViewItemImage.setImageBitmap(bmImg);
+        holder.recyclerViewItemTextView.setText(mDataset.get(position).diaryEditDate);
         holder.recyclerViewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

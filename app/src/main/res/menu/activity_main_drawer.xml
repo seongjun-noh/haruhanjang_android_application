@@ -6,13 +6,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_year"
+            android:id="@+id/nav_viewall"
             android:icon="@drawable/ic_calendar"
-            android:title="@string/menu_year" />
+            android:title="@string/menu_viewall" />
         <item
-            android:id="@+id/nav_month"
+            android:id="@+id/nav_favorite"
             android:icon="@drawable/ic_calendar"
-            android:title="@string/menu_month" />
+            android:title="@string/menu_favorite" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"

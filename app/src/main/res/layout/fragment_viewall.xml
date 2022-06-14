@@ -7,7 +7,7 @@
     android:background="#FAFAFA"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".ui.year.YearFragment">
+    tools:context=".ui.year.ViewAllFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_gravity="center"

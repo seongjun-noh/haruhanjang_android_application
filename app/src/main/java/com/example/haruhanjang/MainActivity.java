@@ -1,7 +1,6 @@
 package com.example.haruhanjang;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_year, R.id.nav_month, R.id.nav_slideshow)
+                R.id.nav_viewall, R.id.nav_favorite, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);

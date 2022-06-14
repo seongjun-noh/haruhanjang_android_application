@@ -1,36 +1,29 @@
 package com.example.haruhanjang.ui.year;
 
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.haruhanjang.DiaryData;
-import com.example.haruhanjang.MainActivity;
 import com.example.haruhanjang.MyDBHelper;
 import com.example.haruhanjang.R;
 import com.example.haruhanjang.RecyclerViewAdapter;
-import com.example.haruhanjang.databinding.FragmentYearBinding;
+import com.example.haruhanjang.databinding.FragmentViewallBinding;
 
 import java.util.ArrayList;
 
-public class YearFragment extends Fragment {
+public class ViewAllFragment extends Fragment {
 
-    private FragmentYearBinding binding;
+    private FragmentViewallBinding binding;
 
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerViewAdaptor;
@@ -42,10 +35,10 @@ public class YearFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        YearViewModel yearViewModel =
-                new ViewModelProvider(this).get(YearViewModel.class);
+        ViewAllViewModel viewAllViewModel =
+                new ViewModelProvider(this).get(ViewAllViewModel.class);
 
-        binding = FragmentYearBinding.inflate(inflater, container, false);
+        binding = FragmentViewallBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         myDataset = new ArrayList();
