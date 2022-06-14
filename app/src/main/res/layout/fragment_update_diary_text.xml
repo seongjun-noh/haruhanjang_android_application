@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/updateDiaryTextFrame"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:background="#F9F7E8"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/updateDiaryTextEdt"
+            android:layout_width="300dp"
+            android:layout_height="350dp"
+            android:hint="본문을 입력하세요"
+            android:background="@android:color/transparent"
+            android:gravity="start"/>
+    </LinearLayout>
+</FrameLayout>
